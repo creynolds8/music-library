@@ -30,10 +30,24 @@ const library = {
 // prints a list of all playlists, in the form:
 // p01: Coding Music - 2 tracks
 // p02: Other Playlist - 1 tracks
+
+const trackCounter = function(playlist) {
+       const tracks = Object.values(library.playlists[playlist].tracks);
+       return tracks.length;
+};
+
 const printPlaylists = function() {
+       const playlistArr = Object.keys(library.playlists);
+       playlistArr.forEach(pL => console.log(`${pL}: ${library.playlists[pL].name} - ${trackCounter(pL)} tracks`));
+};
+printPlaylists();
 
-}
 
+
+// const getPlaylistTrackQuantity = 0;
+
+
+// printPlaylists(getIndvPlaylistId(getPlaylistIDs(library)));
 
 // prints a list of all tracks, using the following format:
 // t01: Code Monkey by Jonathan Coulton (Thing a Week Three)
