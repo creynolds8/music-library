@@ -84,7 +84,7 @@ const printPlaylist = function(playlistId) {
                             //console.log(track); // -> t01 /n t02
                             for (const trackID in bkmkLT) {
                                    if (bkmkLT[trackID].id === track) {
-                                          console.log(`${track}: ${bkmkLT[trackID].name} by ${bkmkLT[trackID].artist} (${bkmkLT[trackID].album})`)
+                                          console.log(`${track}: ${bkmkLT[trackID].name} by ${bkmkLT[trackID].artist} (${bkmkLT[trackID].album})`);
                                    }
                             }
                      }
@@ -99,10 +99,10 @@ console.log(divider);
 const addTrackToPlaylist = function(trackId, playlistId) {
        for (const trackName in bkmkLT) {
               if (trackName === trackId) {
-                     bkmkLP[playlistId].tracks = bkmkLP[playlistId].tracks.unshift(trackId)
+                     bkmkLP[playlistId].tracks = bkmkLP[playlistId].tracks.unshift(trackId);
               }
        }
-       console.log(`Playlist now has ${bkmkLP[playlistId].tracks} tracks`)
+       console.log(`Playlist now has ${bkmkLP[playlistId].tracks} tracks`);
 
 };
 
@@ -118,7 +118,7 @@ const generateUid = function() {
 
 // adds a track to the library
 const addTrack = function(name, artist, album) {
-       const newId = generateUid()
+       const newId = generateUid();
        library.tracks[newId] = {
               id: newId,
               name: name,
@@ -149,7 +149,7 @@ console.log(divider);
 // STRETCH:
 // given a query string string, prints a list of tracks
 // where the name, artist or album contains the query string (case insensitive)
-// tip: use "string".search("tri") 
+// tip: use "string".search("tri")
 // https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/search
 const printSearchResults = function(query) {
 
