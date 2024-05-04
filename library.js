@@ -46,11 +46,7 @@ const divider = '----------------------';
 const bkmkLP = library.playlists;
 const bkmkLT = library.tracks;
 
-const trackCounter = function(playlist) {
-       return bkmkLP[playlist].tracks.length;
-};
-trackCounter('p01')
-/*
+const trackCounter = playlist => bkmkLP[playlist].tracks.length;
 
 const printPlaylists = function() {
        const playlistArr = Object.keys(bkmkLP);
@@ -100,10 +96,10 @@ console.log(divider);
 const addTrackToPlaylist = function(trackId, playlistId) {
        for (const trackName in bkmkLT) {
               if (trackName === trackId) {
-                     bkmkLP[playlistId].tracks = bkmkLP[playlistId].tracks.unshift(trackId);
+                     bkmkLP[playlistId].tracks.unshift(trackId);
               }
        }
-       console.log(`Playlist now has ${bkmkLP[playlistId].tracks} tracks`);
+       console.log(`Playlist now has ${bkmkLP[playlistId].tracks.length} tracks`);
 
 };
 
