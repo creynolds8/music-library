@@ -47,9 +47,10 @@ const bkmkLP = library.playlists;
 const bkmkLT = library.tracks;
 
 const trackCounter = function(playlist) {
-       const tracks = Object.values(bkmkLP[playlist].tracks);
-       return tracks.length;
+       return bkmkLP[playlist].tracks.length;
 };
+trackCounter('p01')
+/*
 
 const printPlaylists = function() {
        const playlistArr = Object.keys(bkmkLP);
@@ -154,3 +155,5 @@ console.log(divider);
 const printSearchResults = function(query) {
 
 };
+
+*/
