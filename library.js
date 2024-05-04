@@ -1,36 +1,36 @@
 const library = {
-       tracks: {
-              t01: {
-                     id: "t01",
-                     name: "Code Monkey",
-                     artist: "Jonathan Coulton",
-                     album: "Thing a Week Three"
-              },
-              t02: {
-                     id: "t02",
-                     name: "Model View Controller",
-                     artist: "James Dempsey",
-                     album: "WWDC 2003"
-              },
-              t03: {
-                     id: "t03",
-                     name: "Four Thirty-Three",
-                     artist: "John Cage",
-                     album: "Woodstock 1952"
-              }
-       },
-       playlists: {
-              p01: {
-                     id: "p01",
-                     name: "Coding Music",
-                     tracks: ["t01", "t02"]
-              },
-              p02: {
-                     id: "p02",
-                     name: "Other Playlist",
-                     tracks: ["t03"]
-              }
-       }
+  tracks: {
+    t01: {
+      id: "t01",
+      name: "Code Monkey",
+      artist: "Jonathan Coulton",
+      album: "Thing a Week Three"
+    },
+    t02: {
+      id: "t02",
+      name: "Model View Controller",
+      artist: "James Dempsey",
+      album: "WWDC 2003"
+    },
+    t03: {
+      id: "t03",
+      name: "Four Thirty-Three",
+      artist: "John Cage",
+      album: "Woodstock 1952"
+    }
+  },
+  playlists: {
+    p01: {
+      id: "p01",
+      name: "Coding Music",
+      tracks: ["t01", "t02"]
+    },
+    p02: {
+      id: "p02",
+      name: "Other Playlist",
+      tracks: ["t03"]
+    }
+  }
 };
 
 /////////////////////////////
@@ -49,8 +49,8 @@ const bkmkLT = library.tracks;
 const trackCounter = playlist => bkmkLP[playlist].tracks.length;
 
 const printPlaylists = function() {
-       const playlistArr = Object.keys(bkmkLP);
-       playlistArr.forEach(pL => console.log(`${pL}: ${bkmkLP[pL].name} - ${trackCounter(pL)} tracks`));
+  const playlistArr = Object.keys(bkmkLP);
+  playlistArr.forEach(pL => console.log(`${pL}: ${bkmkLP[pL].name} - ${trackCounter(pL)} tracks`));
 };
 printPlaylists();
 console.log(divider);
@@ -60,9 +60,9 @@ console.log(divider);
 // t02: Model View Controller by James Dempsey (WWDC 2003)
 // t03: Four Thirty-Three by John Cage (Woodstock 1952)
 const printTracks = function() {
-       const trackArr = Object.keys(bkmkLT);
-       trackArr.forEach(trackNum => console.log(`${trackNum}: ${bkmkLT[trackNum].name} by ${bkmkLT[trackNum].artist} (${bkmkLT[trackNum].album})`
-       ));
+  const trackArr = Object.keys(bkmkLT);
+  trackArr.forEach(trackNum => console.log(`${trackNum}: ${bkmkLT[trackNum].name} by ${bkmkLT[trackNum].artist} (${bkmkLT[trackNum].album})`
+  ));
 };
 
 printTracks();
@@ -73,20 +73,20 @@ console.log(divider);
 // t01: Code Monkey by Jonathan Coulton (Thing a Week Three)
 // t02: Model View Controller by James Dempsey (WWDC 2003)
 const printPlaylist = function(playlistId) {
-       for (const playlist in bkmkLP) {
-              if (playlist === playlistId) {
-                     console.log(`${playlist}: ${bkmkLP[playlist].name} - ${trackCounter(playlist)} tracks`);
-                     //console.log(playlist) //-> p01
-                     for (const track of bkmkLP[playlist].tracks) {
-                            //console.log(track); // -> t01 /n t02
-                            for (const trackID in bkmkLT) {
-                                   if (bkmkLT[trackID].id === track) {
-                                          console.log(`${track}: ${bkmkLT[trackID].name} by ${bkmkLT[trackID].artist} (${bkmkLT[trackID].album})`);
-                                   }
-                            }
-                     }
-              }
-       }
+  for (const playlist in bkmkLP) {
+    if (playlist === playlistId) {
+      console.log(`${playlist}: ${bkmkLP[playlist].name} - ${trackCounter(playlist)} tracks`);
+      //console.log(playlist) //-> p01
+      for (const track of bkmkLP[playlist].tracks) {
+        //console.log(track); // -> t01 /n t02
+        for (const trackID in bkmkLT) {
+          if (bkmkLT[trackID].id === track) {
+            console.log(`${track}: ${bkmkLT[trackID].name} by ${bkmkLT[trackID].artist} (${bkmkLT[trackID].album})`);
+          }
+        }
+      }
+    }
+  }
 };
 
 printPlaylist('p01');
@@ -94,12 +94,12 @@ console.log(divider);
 
 // adds an existing track to an existing playlist
 const addTrackToPlaylist = function(trackId, playlistId) {
-       for (const trackName in bkmkLT) {
-              if (trackName === trackId) {
-                     bkmkLP[playlistId].tracks.unshift(trackId);
-              }
-       }
-       console.log(`Playlist now has ${bkmkLP[playlistId].tracks.length} tracks`);
+  for (const trackName in bkmkLT) {
+    if (trackName === trackId) {
+      bkmkLP[playlistId].tracks.unshift(trackId);
+    }
+  }
+  console.log(`Playlist now has ${bkmkLP[playlistId].tracks.length} tracks`);
 
 };
 
@@ -109,20 +109,20 @@ console.log(divider);
 // generates a unique id
 // (already implemented: use this for addTrack and addPlaylist)
 const generateUid = function() {
-       return Math.floor((1 + Math.random()) * 0x10000).toString(16).substring(1);
+  return Math.floor((1 + Math.random()) * 0x10000).toString(16).substring(1);
 };
 
 
 // adds a track to the library
 const addTrack = function(name, artist, album) {
-       const newId = generateUid();
-       library.tracks[newId] = {
-              id: newId,
-              name: name,
-              artist: artist,
-              album: album
-       };
-       console.log('New Song added!', bkmkLT[newId]);
+  const newId = generateUid();
+  library.tracks[newId] = {
+    id: newId,
+    name: name,
+    artist: artist,
+    album: album
+  };
+  console.log('New Song added!', bkmkLT[newId]);
 };
 
 addTrack('So Long London', 'Taylor Swift', 'The Torutred Poets Department');
@@ -131,13 +131,13 @@ console.log(divider);
 
 // adds a playlist to the library
 const addPlaylist = function(name) {
-       const newId = generateUid();
-       library.playlists[newId] = {
-              id: newId,
-              name: name,
-              tracks: []
-       };
-       console.log('New Playlist Created!', bkmkLP[newId]);
+  const newId = generateUid();
+  library.playlists[newId] = {
+    id: newId,
+    name: name,
+    tracks: []
+  };
+  console.log('New Playlist Created!', bkmkLP[newId]);
 };
 
 addPlaylist('p03');
@@ -148,8 +148,6 @@ console.log(divider);
 // where the name, artist or album contains the query string (case insensitive)
 // tip: use "string".search("tri")
 // https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/search
-const printSearchResults = function(query) {
+//const printSearchResults = function(query) {
 
-};
-
-*/
+//};
